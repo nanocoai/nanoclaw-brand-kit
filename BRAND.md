@@ -198,14 +198,72 @@ Sizes at a 16px root. Prose column 640–720px. On phones Display drops to 36/42
 
 ## Voice and tone
 
-- **The name:** "NanoClaw", one word, capital N and C. Never "Nanoclaw", "Nano Claw", "Nano-Claw" or "NANOCLAW". Lowercase only in code, URLs, repos (`bash nanoclaw.sh`, `nanoclaw.dev`, `nanocoai/nanoclaw`). The company is **NanoCo**.
-- **Concrete, not grand:** numbers and nouns over adjectives. Do: "One host process. No microservices." Don't: "A powerful, enterprise-grade agent platform."
-- **Short and direct,** to "you"; fragments are fine. Do: "Secure. Lightweight. Yours." / "Add only the channels you use."
-- **Honest about trade-offs.** Do: "Docker is the only supported container runtime." / "Comfort with a terminal and git clone is expected." Don't: "Works anywhere, no setup needed."
-- **Show the mechanism,** not reassurance. Do: "Agents run in Linux containers and can only see what's explicitly mounted." Don't: "Bank-grade security keeps your data safe."
-- **Capitals:** on the site, nav, buttons and section titles are Title Case ("Get Started"); card titles, list lead-ins and body are sentence case. Other names keep their casing (Claude Code, WhatsApp, iMessage).
-- **Spelling:** US English. **Emoji:** none in headings, body or buttons (the site uses one per feature card; the README none). UI icons are Lucide.
-- **Code style** for commands, skills (`/add-telegram`), env vars, paths. Copyable command blocks have no `$` prompt; a `$` only in a terminal mock-up.
+NanoClaw sounds like a friend who runs a home server. They know how it works, they’ll tell you when they don’t know, and they’re glad you asked. When setup succeeds, “Your agent’s up. Say hi. 👋” is plenty. When setup fails, tell the reader what happened and help them take the next step.
+
+### Make it easy to follow
+
+Use everyday words and short sentences. Assume the reader is capable and may be seeing NanoClaw for the first time. When a technical term matters, use it and explain it where it first appears. Readers who learn the word *container* here will recognize it when they open Docker.
+
+- **Make ownership concrete.** Say “your agent,” “your machine,” or “your fork” when it helps someone understand what they control. Be just as clear about what goes elsewhere. “If you use a hosted model, its provider receives the content your agent sends in a request.”
+- **Explain how it works.** “The credential gateway adds the API key when it forwards the request” tells the reader something they can use. A claim like “bank-grade security” leaves them guessing.
+- **Give the next useful action.** An error message should say what failed. If the cause is uncertain, give the reader a way to check it. Save the fix for when you know what needs fixing.
+- **Use numbers you can verify.** Check timings, version numbers, and contributor counts against the code, measurement, or release you’re describing.
+- **Link where the detail lives.** Keep the install command in Quick Start. Link to the installation guide for what the wizard does at each step. Give the link a name that tells readers what they’ll find.
+
+### Match the moment
+
+| Where you’re writing | How NanoClaw sounds |
+|---|---|
+| README, website, onboarding | Warm and direct. Show what someone can do with their agent and give them a place to start. |
+| Guides, reference docs, CLI help | Practical and precise. Use the names people see on screen. Give an example they can try. |
+| Errors, warnings, privacy, security | Calm and literal. Explain what happened or what will happen, who or what it affects, and what the reader can do. |
+| Release notes | Specific and appreciative. Name a change someone will notice. Credit the people who made it happen. |
+| Social, Discord, stickers, merch | Conversational and playful. There’s room for a shrimp joke if you have a good one. |
+
+The subject takes priority over the channel. A security advisory deserves the same care in Discord as it does in `SECURITY.md`.
+
+### Write steps people can follow
+
+For installation, migration, troubleshooting, credential rotation, backup, restore, and uninstall procedures, draw on **ASD-STE100 Simplified Technical English**. Give each step one action. Put a condition before the action it affects. Use the same name for the same thing throughout. When the result might surprise a new user, explain what success looks like. These are principles we borrow from the standard. [ASD-STE100, Issue 9](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf)
+
+For example, a macOS troubleshooting entry could read:
+
+> **Setup can’t reach Docker**
+>
+> 1. Open Docker Desktop.
+> 2. When Docker Desktop reports that the engine is running, run `docker ps`.
+> 3. If the command prints a list of containers, run `bash nanoclaw.sh` again.
+>
+> An empty list is fine. It means Docker answered and no containers are running.
+
+### Leave room for personality
+
+Take the reader’s time seriously. Take yourself a little less seriously. Our mascot is a shrimp waving a claw. A dry aside, a cheerful emoji, or a small moment of delight can make the product feel welcoming. Routine instructions can be routine. “Install Docker” is a perfectly good heading.
+
+| Moment | Example |
+|---|---|
+| First successful run | “Your agent’s up. Say hi. 👋” |
+| Empty schedule | “Nothing scheduled. Your agent has the afternoon free.” |
+| An optional integration | “Want to talk to your agent in Telegram? Run `/add-telegram` in your checkout.” |
+| A release announcement | “Each agent can now have its own Slack app, so you can see who replied.” |
+
+Let humor land on us or the situation. When the reader is stuck, the most considerate thing we can offer is a clear next step. Avoid jokes at someone’s expense, including people who use or build other projects.
+
+### The mascot and emoji
+
+The mascot can speak in short first-person lines on stickers, social posts, or a playful 404 page. In setup and chat, make it clear who’s speaking. Readers should be able to tell your agent’s reply from an installer message.
+
+Emoji are welcome. Use them to help someone find a section, recognize a status, or enjoy a moment. A 🚀 beside Quick Start, a 👋 after a successful setup, and a 🦐 in a release announcement all feel at home. Use your judgment about frequency. When the meaning matters, put it in words too: **“⚠️ This removes the agent’s files.”**
+
+### Names and mechanics
+
+Write **NanoClaw** for the open-source project and **NanoCo** for the company. Preserve literal casing in commands, paths, repository names, and URLs. Use US English and the official spelling of names such as Claude Code, WhatsApp, and iMessage.
+
+Follow the website’s Title Case convention for navigation, buttons, and section titles. Use sentence case in body copy. Format commands, skills, environment variables, and paths as code. Leave the `$` prompt out of copyable commands so readers can paste them directly into a terminal.
+
+### Before publishing
+
+Read it aloud. Would you say it this way to someone you were helping? Check the facts, make sure the reader knows who’s speaking, and see whether they can tell what to do next.
 
 ## File index
 

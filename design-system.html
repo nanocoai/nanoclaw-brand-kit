@@ -593,27 +593,94 @@ footer{max-width:1180px;margin:0 auto;padding:32px 24px 56px;border-top:1px soli
   <p class="copy-hint">Sizes in px at a 16px root (divide by 16 for rem). Prose column 640–720px. On phones, Display drops to 36/42 and H1 to 30/36. Mintlify renders every docs heading at 600: that is its <code>fonts.heading</code> setting.</p>
 </section>
 <section id="voice">
-  <p class="eyebrow">07</p><h2>Voice and tone</h2>
-  <p class="intro">How nanoclaw.dev and the GitHub README already write. The “Do” lines are quoted from them; the “Don’t” lines are made up to show the opposite.</p>
-  <div class="panel name-panel"><h4>The name</h4><ul>
-    <li><strong>NanoClaw</strong>: one word, capital N and capital C. Never “Nanoclaw”, “Nano Claw”, “Nano-Claw” or “NANOCLAW”.</li>
-    <li>Lowercase <code>nanoclaw</code> only where it is code: commands, URLs and repository names (<code>bash nanoclaw.sh</code>, <code>nanoclaw.dev</code>, <code>nanocoai/nanoclaw</code>).</li>
-    <li>The company is <strong>NanoCo</strong> (“Built by NanoCo”).</li>
-    <li>The mascot has no name: neither the site nor the README gives it one. Call it “the NanoClaw mascot”, and don’t invent a name in copy.</li>
-  </ul></div>
-  <div class="grid2" style="margin-top:16px">
-    <div class="panel"><h4>Concrete, not grand</h4><p>Numbers and nouns over adjectives. Say what it is made of.</p><div class="say"><p><span class="verdict v-do"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7"/></svg>Do</span>“One host process. No microservices.”</p><p><span class="verdict v-dont"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Don’t</span>“A powerful, enterprise-grade agent platform.”</p></div></div>
-    <div class="panel"><h4>Short and direct</h4><p>Short sentences, to “you”. Fragments are fine.</p><div class="say"><p><span class="verdict v-do"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7"/></svg>Do</span>“Secure. Lightweight. Yours.” · “Add only the channels you use.”</p><p><span class="verdict v-dont"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Don’t</span>“Users can leverage an extensible, best-in-class channel framework.”</p></div></div>
-    <div class="panel"><h4>Honest about trade-offs</h4><p>Say what it needs and what it doesn’t do.</p><div class="say"><p><span class="verdict v-do"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7"/></svg>Do</span>“Docker is the only supported container runtime.” · “Comfort with a terminal and git clone is expected.”</p><p><span class="verdict v-dont"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Don’t</span>“Works anywhere, no setup needed.”</p></div></div>
-    <div class="panel"><h4>Show the mechanism</h4><p>Explain safety by how it works, not by reassurance.</p><div class="say"><p><span class="verdict v-do"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7"/></svg>Do</span>“Agents run in Linux containers and can only see what’s explicitly mounted.”</p><p><span class="verdict v-dont"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>Don’t</span>“Bank-grade security keeps your data safe.”</p></div></div>
-  </div>
-  <h3>Basics</h3>
-  <ul>
-    <li><strong>Capitals:</strong> on the site, navigation, buttons and section titles are Title Case (“Get Started”, “Quick Start”, “What It Supports”); card titles, list lead-ins and body text are sentence case (“Multi-channel messaging”, “Small enough to understand.”). Other names keep their own casing: Claude Code, WhatsApp, iMessage, OneCLI.</li>
-    <li><strong>Spelling:</strong> product copy is US English (“customization”, “behavior”).</li>
-    <li><strong>Emoji:</strong> the site uses one emoji as the icon of each feature and philosophy card; the README uses none in its prose. No emoji in headings, body text or buttons. New UI uses Lucide icons (Foundations), not emoji.</li>
-    <li><strong>Code:</strong> anything you type or that is a file goes in code style: commands, skills (<code>/add-telegram</code>), environment variables (<code>NANOCLAW_NO_DIAGNOSTICS=1</code>), paths. Commands people copy go in a block, one per line, with no <code>$</code> prompt (as in the README); a <code>$</code> prompt only in a terminal mock-up (as on the site).</li>
-  </ul>
+<p class="eyebrow">07</p><h2>Voice and tone</h2>
+<p>NanoClaw sounds like a friend who runs a home server. They know how it works, they’ll tell you when they don’t know, and they’re glad you asked. When setup succeeds, “Your agent’s up. Say hi. 👋” is plenty. When setup fails, tell the reader what happened and help them take the next step.</p>
+<h3>Make it easy to follow</h3>
+<p>Use everyday words and short sentences. Assume the reader is capable and may be seeing NanoClaw for the first time. When a technical term matters, use it and explain it where it first appears. Readers who learn the word <em>container</em> here will recognize it when they open Docker.</p>
+<ul>
+<li><strong>Make ownership concrete.</strong> Say “your agent,” “your machine,” or “your fork” when it helps someone understand what they control. Be just as clear about what goes elsewhere. “If you use a hosted model, its provider receives the content your agent sends in a request.”</li>
+<li><strong>Explain how it works.</strong> “The credential gateway adds the API key when it forwards the request” tells the reader something they can use. A claim like “bank-grade security” leaves them guessing.</li>
+<li><strong>Give the next useful action.</strong> An error message should say what failed. If the cause is uncertain, give the reader a way to check it. Save the fix for when you know what needs fixing.</li>
+<li><strong>Use numbers you can verify.</strong> Check timings, version numbers, and contributor counts against the code, measurement, or release you’re describing.</li>
+<li><strong>Link where the detail lives.</strong> Keep the install command in Quick Start. Link to the installation guide for what the wizard does at each step. Give the link a name that tells readers what they’ll find.</li>
+</ul>
+<h3>Match the moment</h3>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>Where you’re writing</th>
+<th>How NanoClaw sounds</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>README, website, onboarding</td>
+<td>Warm and direct. Show what someone can do with their agent and give them a place to start.</td>
+</tr>
+<tr>
+<td>Guides, reference docs, CLI help</td>
+<td>Practical and precise. Use the names people see on screen. Give an example they can try.</td>
+</tr>
+<tr>
+<td>Errors, warnings, privacy, security</td>
+<td>Calm and literal. Explain what happened or what will happen, who or what it affects, and what the reader can do.</td>
+</tr>
+<tr>
+<td>Release notes</td>
+<td>Specific and appreciative. Name a change someone will notice. Credit the people who made it happen.</td>
+</tr>
+<tr>
+<td>Social, Discord, stickers, merch</td>
+<td>Conversational and playful. There’s room for a shrimp joke if you have a good one.</td>
+</tr>
+</tbody></table></div>
+<p>The subject takes priority over the channel. A security advisory deserves the same care in Discord as it does in <code>SECURITY.md</code>.</p>
+<h3>Write steps people can follow</h3>
+<p>For installation, migration, troubleshooting, credential rotation, backup, restore, and uninstall procedures, draw on <strong>ASD-STE100 Simplified Technical English</strong>. Give each step one action. Put a condition before the action it affects. Use the same name for the same thing throughout. When the result might surprise a new user, explain what success looks like. These are principles we borrow from the standard. <a href="https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf">ASD-STE100, Issue 9</a></p>
+<p>For example, a macOS troubleshooting entry could read:</p>
+<blockquote>
+<p><strong>Setup can’t reach Docker</strong></p>
+<ol>
+<li>Open Docker Desktop.</li>
+<li>When Docker Desktop reports that the engine is running, run <code>docker ps</code>.</li>
+<li>If the command prints a list of containers, run <code>bash nanoclaw.sh</code> again.</li>
+</ol>
+<p>An empty list is fine. It means Docker answered and no containers are running.</p>
+</blockquote>
+<h3>Leave room for personality</h3>
+<p>Take the reader’s time seriously. Take yourself a little less seriously. Our mascot is a shrimp waving a claw. A dry aside, a cheerful emoji, or a small moment of delight can make the product feel welcoming. Routine instructions can be routine. “Install Docker” is a perfectly good heading.</p>
+<div class="tbl-wrap"><table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>First successful run</td>
+<td>“Your agent’s up. Say hi. 👋”</td>
+</tr>
+<tr>
+<td>Empty schedule</td>
+<td>“Nothing scheduled. Your agent has the afternoon free.”</td>
+</tr>
+<tr>
+<td>An optional integration</td>
+<td>“Want to talk to your agent in Telegram? Run <code>/add-telegram</code> in your checkout.”</td>
+</tr>
+<tr>
+<td>A release announcement</td>
+<td>“Each agent can now have its own Slack app, so you can see who replied.”</td>
+</tr>
+</tbody></table></div>
+<p>Let humor land on us or the situation. When the reader is stuck, the most considerate thing we can offer is a clear next step. Avoid jokes at someone’s expense, including people who use or build other projects.</p>
+<h3>The mascot and emoji</h3>
+<p>The mascot can speak in short first-person lines on stickers, social posts, or a playful 404 page. In setup and chat, make it clear who’s speaking. Readers should be able to tell your agent’s reply from an installer message.</p>
+<p>Emoji are welcome. Use them to help someone find a section, recognize a status, or enjoy a moment. A 🚀 beside Quick Start, a 👋 after a successful setup, and a 🦐 in a release announcement all feel at home. Use your judgment about frequency. When the meaning matters, put it in words too: <strong>“⚠️ This removes the agent’s files.”</strong></p>
+<h3>Names and mechanics</h3>
+<p>Write <strong>NanoClaw</strong> for the open-source project and <strong>NanoCo</strong> for the company. Preserve literal casing in commands, paths, repository names, and URLs. Use US English and the official spelling of names such as Claude Code, WhatsApp, and iMessage.</p>
+<p>Follow the website’s Title Case convention for navigation, buttons, and section titles. Use sentence case in body copy. Format commands, skills, environment variables, and paths as code. Leave the <code>$</code> prompt out of copyable commands so readers can paste them directly into a terminal.</p>
+<h3>Before publishing</h3>
+<p>Read it aloud. Would you say it this way to someone you were helping? Check the facts, make sure the reader knows who’s speaking, and see whether they can tell what to do next.</p>
 </section>
 <section id="foundations">
   <p class="eyebrow">08</p><h2>Foundations</h2>
