@@ -1,0 +1,135 @@
+/* NanoClaw design tokens v1.3.1 (from the design system page). Dark is the default theme. */
+:root {
+  --nc-mint-50: #E9FCF7;
+  --nc-mint-100: #D0FBF2;
+  --nc-mint-200: #A5F9E9;
+  --nc-mint-300: #7BF5E1;
+  --nc-mint-400: #56EDD6;
+  --nc-mint-500: #36CBB6;
+  --nc-mint-600: #18A08E;
+  --nc-mint-700: #0B7566;
+  --nc-mint-800: #06544A;
+  --nc-mint-900: #12302C;
+  --nc-mint-950: #081F1B;
+  --nc-neutral-0: #FFFFFF;
+  --nc-neutral-50: #F6FAF9;
+  --nc-neutral-100: #EAF4F2;
+  --nc-neutral-150: #DEE9E8;
+  --nc-neutral-200: #CCDBDA;
+  --nc-neutral-300: #B0C2C1;
+  --nc-neutral-400: #93A9A6;
+  --nc-neutral-500: #768B8A;
+  --nc-neutral-600: #5B6E6B;
+  --nc-neutral-700: #3C4B4A;
+  --nc-neutral-800: #263234;
+  --nc-neutral-850: #1A2426;
+  --nc-neutral-900: #131B1D;
+  --nc-neutral-950: #0C1213;
+  --nc-amber-300: #F5B84B;
+  --nc-amber-950: #2A2214;
+  --nc-amber-700: #9A6200;
+  --nc-amber-50: #FFF4E2;
+  --nc-red-300: #FF6B6B;
+  --nc-red-950: #2C1617;
+  --nc-red-700: #C93434;
+  --nc-red-50: #FEF0EF;
+}
+
+/* Semantic tokens: dark (default) */
+:root, [data-theme="dark"] {
+  --nc-bg: #0C1213;
+  --nc-surface: #131B1D;
+  --nc-surface-2: #1A2426;
+  --nc-border: #263234;
+  --nc-border-strong: #5B6E6B;
+  --nc-text: #EAF4F2;
+  --nc-text-muted: #93A9A6;
+  --nc-accent: #56EDD6;
+  --nc-accent-hover: #7BF5E1;
+  --nc-accent-text: #56EDD6;
+  --nc-accent-tint: #12302C;
+  --nc-accent-border: #56EDD6;
+  --nc-on-accent: #0C1213;
+  --nc-focus: #56EDD6;
+  --nc-warning: #F5B84B;
+  --nc-warning-tint: #2A2214;
+  --nc-danger: #FF6B6B;
+  --nc-danger-hover: #FF8A8A;
+  --nc-danger-tint: #2C1617;
+  --nc-on-danger: #0C1213;
+  --nc-success: #56EDD6;
+}
+
+/* Semantic tokens: light */
+[data-theme="light"] {
+  --nc-bg: #F6FAF9;
+  --nc-surface: #FFFFFF;
+  --nc-surface-2: #EAF4F2;
+  --nc-border: #CCDBDA;
+  --nc-border-strong: #768B8A;
+  --nc-text: #0C1213;
+  --nc-text-muted: #5B6E6B;
+  --nc-accent: #56EDD6;
+  --nc-accent-hover: #36CBB6;
+  --nc-accent-text: #0B7566;
+  --nc-accent-tint: #E9FCF7;
+  --nc-accent-border: #0B7566;
+  --nc-on-accent: #0C1213;
+  --nc-focus: #0B7566;
+  --nc-warning: #9A6200;
+  --nc-warning-tint: #FFF4E2;
+  --nc-danger: #C93434;
+  --nc-danger-hover: #A82A2A;
+  --nc-danger-tint: #FEF0EF;
+  --nc-on-danger: #FFFFFF;
+  --nc-success: #0B7566;
+}
+
+:root {
+  /* Type */
+  --nc-font-heading: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --nc-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --nc-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Spacing (4px base) */
+  --nc-space-0-5: 2px; --nc-space-1: 4px; --nc-space-2: 8px; --nc-space-3: 12px;
+  --nc-space-4: 16px; --nc-space-5: 20px; --nc-space-6: 24px; --nc-space-8: 32px;
+  --nc-space-10: 40px; --nc-space-12: 48px; --nc-space-16: 64px; --nc-space-24: 96px;
+  /* Radii */
+  --nc-radius-xs: 4px; --nc-radius-sm: 6px; --nc-radius-md: 8px;
+  --nc-radius-lg: 10px; --nc-radius-xl: 16px; --nc-radius-pill: 999px;
+  /* Elevation: borders first; a shadow only for overlays */
+  --nc-shadow-overlay: 0 12px 32px rgb(0 0 0 / 0.45);
+  /* Focus */
+  --nc-focus-ring: 0 0 0 2px var(--nc-bg), 0 0 0 4px var(--nc-focus);
+  /* Motion */
+  --nc-duration-fast: 120ms; --nc-duration-base: 200ms; --nc-duration-slow: 320ms;
+  --nc-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --nc-ease-exit: cubic-bezier(0.3, 0, 1, 1);
+}
+[data-theme="light"] { --nc-shadow-overlay: 0 1px 2px rgb(12 18 19 / 0.06), 0 8px 24px rgb(12 18 19 / 0.10); }
+@media (prefers-reduced-motion: reduce) {
+  :root { --nc-duration-fast: 0ms; --nc-duration-base: 0ms; --nc-duration-slow: 0ms; }
+}
+
+/* Logo colours per theme, for inline SVG wordmarks */
+:root, [data-theme="dark"] {
+  --nc-logo-nano: #FFFFFF;
+  --nc-logo-claw: #56EDD6;
+  --nc-logo-rim: #D6FCF7;
+}
+[data-theme="light"] {
+  --nc-logo-nano: #080037;
+  --nc-logo-claw: #080037;
+  --nc-logo-rim: none;
+}
+:root {
+  /* Brand constants (same in both themes) */
+  --nc-brand-mint: #56EDD6;
+  --nc-brand-navy: #080037;
+  --nc-brand-near-black: #0C1213;
+  --nc-brand-rim: #D6FCF7;
+}
+
+/* Fonts shipped in assets/fonts (Latin subsets, variable). For other scripts use Google Fonts. */
+@font-face { font-family: "Inter"; src: url("assets/fonts/Inter-latin.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-latin.woff2") format("woff2"); font-weight: 100 800; font-display: swap; }
