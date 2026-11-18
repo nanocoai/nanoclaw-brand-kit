@@ -17,6 +17,7 @@ Values here are generated from the design system's sources; `tokens.json` and `t
 8. Inter for headings and body, JetBrains Mono for code. No other fonts.
 9. Write **NanoClaw**: one word, capital N and C. Lowercase `nanoclaw` only in code, URLs and repo names.
 10. Use a one-colour variant only when the medium allows one ink; otherwise full colour.
+11. For slides, start from `slides/` and follow the Slides section: 24px is the smallest text on a slide.
 
 ## Logo
 
@@ -196,6 +197,43 @@ Sizes at a 16px root. Prose column 640–720px. On phones Display drops to 36/42
 **Radii:** xs 4px (kbd, tags), sm 6px (inline code), md 8px (inputs, nav items), lg 10px (cards, callouts, code), xl 16px (dialogs, hero panels), pill 999px (buttons, badges). Borders before shadows; a shadow only for overlays.
 **Motion** (tokens in `tokens.css`): `--nc-duration-fast` 120ms (hover and press), `--nc-duration-base` 200ms (small enters), `--nc-duration-slow` 320ms (panels). Easing is `--nc-ease-standard`, `cubic-bezier(0.2, 0, 0, 1)`; exits use `--nc-ease-exit`, `cubic-bezier(0.3, 0, 1, 1)`, a little faster. With `prefers-reduced-motion: reduce` the three durations are 0ms. The mascot waves once, on first view of a hero or an empty state; it never loops.
 
+## Slides
+
+Decks are 1920 × 1080 with 128px margins (1664 × 824 inside). The kit is in `slides/`: `deck.css` holds the shared styles, `layouts/` has one placeholder slide per layout, and `preview.html` shows them all. `slides/README.md` says how to start a deck, in Claude's Slides, reveal.js or PowerPoint (`slides/nanoclaw-slides.potx`).
+
+**Themes:** set one per slide with a class on its `<section>`.
+
+| Theme | Class | Use |
+|---|---|---|
+| Dark | none | The default: cover, stories, closing |
+| Light | `light` | Dense data: tables, charts, metrics |
+| Mint | `mint` | One statement slide per deck, at most. Near-black text; no wordmark (the mascot's mint vanishes on mint) |
+
+Mix dark and light in one deck so the room feels a change of section; never two mint slides.
+
+**Slide type scale** (`--nc-slide-*` in `tokens.css` and `deck.css`):
+
+| Style | Size/line (px) | Weight | Tracking | Use |
+|---|---|---|---|---|
+| Hero | 120/120 | 800 | -0.025em | Cover title, statement, one big number |
+| Title | 72/78 | 700 | -0.02em | Slide titles, in Title Case; big numbers (`.stat`) |
+| Subtitle | 48/48 | 700 | -0.02em | The "before" number in a before → after pair |
+| Quote | 40/52 | 500 | -0.01em | Quotes, a statement's supporting line |
+| Body | 32/45 | 400; 600 for labels | 0 | Ledes, card titles, stat labels |
+| Small | 28/35 | 500–600 | 0 | Short points, chips |
+| Caption | 24/34 | 400–600 | 0; 0.04em uppercase for eyebrows | Notes, footers, tables, code. **The minimum: nothing on a slide under 24px** |
+
+**Rules for slides**
+1. Wordmark alone, 28px tall, top right at 60px from the top (`.brandmark`), on every slide but the cover and mint slides; `nanoclaw-wordmark-dark.svg` on dark, `-light.svg` on light. The cover gets the full lockup, at least 120px tall.
+2. One idea per slide, under a title at the top margin. Keep titles in the same place on every slide so they never hop.
+3. Big numbers stay in the text colour. Mint marks status (done, better, passing) and eyebrows, not size.
+4. Status is always an icon and a word, never colour alone: success = mint with a check, warning = amber with a clock or warning sign, risk = red with a warning sign. In comparisons the "before" value is muted grey (`--nc-slide-context`).
+5. Footers (source, PR links, date) are one 24px row pinned 64px from the bottom (`.foot`); a slide with a footer gets the `withfoot` class.
+6. Code and terminal output stay dark on every theme (`.termwrap`), in JetBrains Mono. Show real output, trimmed, never made up.
+7. Icons are Lucide outline icons (ISC licence, copies in `slides/icons/`), drawn in the text colour on a rounded tile (`.ichip`), 2px stroke.
+8. Motion plays on arrival only: elements rise or fade in, staggered by 100ms, with the whole slide shown within a second. No loops beside text, nothing that flashes.
+9. Too much for one slide? Split it. Don't shrink text below 24px or squeeze margins.
+
 ## Voice and tone
 
 NanoClaw sounds like a friend who runs a home server. They know how it works, they’ll tell you when they don’t know, and they’re glad you asked. When setup succeeds, “Your agent’s up. Say hi. 👋” is plenty. When setup fails, tell the reader what happened and help them take the next step.
@@ -273,6 +311,15 @@ Read it aloud. Would you say it this way to someone you were helping? Check the 
 | `tokens.json` | Colours, fonts, type scale, spacing, radii, motion, logo rules, for token pipelines (Style Dictionary etc.) | W3C design tokens |
 | `tokens.css` | CSS custom properties: dark default, `[data-theme="light"]`, motion, logo colours, `@font-face`; drop into a web project | CSS |
 | `design-system.html` | The full design system page: visual reference, components, Tailwind and Mintlify snippets | HTML, self-contained |
+| `slides/README.md` | How to start a NanoClaw deck | Markdown |
+| `slides/deck.css` | Shared slide styles: the three themes, the slide type scale, components, motion | CSS, 1920 × 1080 |
+| `slides/layouts/*.html` | One placeholder slide per layout: cover, statement, stats, compare, steps, numbered, table, contents, closing | HTML, one `<section>` each |
+| `slides/preview.html` | Every layout on one page; generated by `python3 slides/build.py` | HTML |
+| `slides/thumbs/*.png` | A screenshot of each layout | 960×540 |
+| `slides/nanoclaw-slides.potx` | PowerPoint template with the same themes and layouts; opens in Keynote and Google Slides | POTX, 16:9 |
+| `slides/icons/*.svg` | The Lucide icons the layouts use, and Lucide's ISC licence | vector |
+| `slides/pptx/build-potx.js` | Builds `nanoclaw-slides.potx` (Node, pptxgenjs) | JavaScript |
+| `slides/build.py` | Checks `deck.css` against `tokens.css` and rebuilds `preview.html` (`--png` for thumbnails) | Python 3 |
 | `assets/app-icon/apple-touch-icon.png` | App icon / favicon (see the App icon table) | 180×180 |
 | `assets/app-icon/favicon-16x16.png` | App icon / favicon (see the App icon table) | 16×16 |
 | `assets/app-icon/favicon-32x32.png` | App icon / favicon (see the App icon table) | 32×32 |
