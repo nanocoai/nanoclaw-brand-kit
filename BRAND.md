@@ -3,6 +3,7 @@
 The NanoClaw design system (Nov 17, 2026) for an agent applying the brand. Paths are relative to this folder.
 Values here are generated from the design system's sources; `tokens.json` and `tokens.css` hold the same values in code form.
 `design-system.html` is the full visual reference (self-contained; open it in a browser).
+**This file is the source of truth for applying the brand.** Where `README.md`, `USAGE.md` or the design system page says something different, follow this file.
 
 ## Rules an agent must follow
 
@@ -48,7 +49,7 @@ These two files are also the GitHub README pair (`nanoclaw-logo-light` / `nanocl
 |---|---|---|
 | 32px tall and up | Full lockup | Site header, README, slides, print |
 | Under 32px tall, or the mascot would be under about 24px | Wordmark only | Footers, small navs, inline mentions, email signatures |
-| A square spot | App icon (or the claw-only mark) | Favicons, avatars, home screens |
+| A square spot | App icon | Favicons, avatars, home screens |
 
 **Wordmark only:** same colours as the lockup, no rim (the rim belongs to the mascot). Light = `assets/wordmark/nanoclaw-wordmark-light.svg` (all navy); dark = `assets/wordmark/nanoclaw-wordmark-dark.svg` (white + mint). One-colour: `-navy`, `-black`, `-white`, `-mint`. Clear space = its cap height. Transparent, tight to the ink.
 
@@ -90,8 +91,6 @@ The mascot's bust cropped to fill a pale `#D6FCF7` rounded tile (corner radius 2
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ```
-
-**Claw-only mark** (`assets/claw-icon/`): a concept, not in use; the app icon is the mascot bust. Kept for very small one-colour marks. `nanoclaw-claw-A-mint` (on dark), `-A-navy` and `-A-outline` (on light), `-C-tile-mint` / `-C-tile-navy` (in a rounded tile); SVG + 512px PNG each.
 
 ## Logo variants
 
@@ -195,6 +194,7 @@ Sizes at a 16px root. Prose column 640–720px. On phones Display drops to 36/42
 
 **Spacing** (4px base): 0-5 = 2px, 1 = 4px, 2 = 8px, 3 = 12px, 4 = 16px, 5 = 20px, 6 = 24px, 8 = 32px, 10 = 40px, 12 = 48px, 16 = 64px, 24 = 96px.
 **Radii:** xs 4px (kbd, tags), sm 6px (inline code), md 8px (inputs, nav items), lg 10px (cards, callouts, code), xl 16px (dialogs, hero panels), pill 999px (buttons, badges). Borders before shadows; a shadow only for overlays.
+**Motion** (tokens in `tokens.css`): `--nc-duration-fast` 120ms (hover and press), `--nc-duration-base` 200ms (small enters), `--nc-duration-slow` 320ms (panels). Easing is `--nc-ease-standard`, `cubic-bezier(0.2, 0, 0, 1)`; exits use `--nc-ease-exit`, `cubic-bezier(0.3, 0, 1, 1)`, a little faster. With `prefers-reduced-motion: reduce` the three durations are 0ms. The mascot waves once, on first view of a hero or an empty state; it never loops.
 
 ## Voice and tone
 
@@ -271,7 +271,7 @@ Read it aloud. Would you say it this way to someone you were helping? Check the 
 |---|---|---|
 | `BRAND.md` | This file: read first | Markdown |
 | `tokens.json` | Colours, fonts, type scale, spacing, radii, logo rules, for token pipelines (Style Dictionary etc.) | W3C design tokens |
-| `tokens.css` | CSS custom properties: dark default, `[data-theme="light"]`, logo colours, `@font-face`; drop into a web project | CSS |
+| `tokens.css` | CSS custom properties: dark default, `[data-theme="light"]`, motion, logo colours, `@font-face`; drop into a web project | CSS |
 | `design-system.html` | The full design system page v1.3.1: visual reference, components, Tailwind and Mintlify snippets | HTML, self-contained |
 | `assets/app-icon/apple-touch-icon.png` | App icon / favicon (see the App icon table) | 180×180 |
 | `assets/app-icon/favicon-16x16.png` | App icon / favicon (see the App icon table) | 16×16 |
@@ -281,16 +281,6 @@ Read it aloud. Would you say it this way to someone you were helping? Check the 
 | `assets/app-icon/favicon.svg` | App icon / favicon (see the App icon table) | vector |
 | `assets/app-icon/icon-192.png` | App icon / favicon (see the App icon table) | 192×192 |
 | `assets/app-icon/icon-512.png` | App icon / favicon (see the App icon table) | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-A-mint-512.png` | Claw-only concept mark | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-A-mint.svg` | Claw-only concept mark | vector |
-| `assets/claw-icon/nanoclaw-claw-A-navy-512.png` | Claw-only concept mark | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-A-navy.svg` | Claw-only concept mark | vector |
-| `assets/claw-icon/nanoclaw-claw-A-outline-512.png` | Claw-only concept mark | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-A-outline.svg` | Claw-only concept mark | vector |
-| `assets/claw-icon/nanoclaw-claw-C-tile-mint-512.png` | Claw-only concept mark | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-C-tile-mint.svg` | Claw-only concept mark | vector |
-| `assets/claw-icon/nanoclaw-claw-C-tile-navy-512.png` | Claw-only concept mark | 512×512 |
-| `assets/claw-icon/nanoclaw-claw-C-tile-navy.svg` | Claw-only concept mark | vector |
 | `assets/fonts/Inter-latin.woff2` | Fonts and their licences | WOFF2 |
 | `assets/fonts/JetBrainsMono-latin.woff2` | Fonts and their licences | WOFF2 |
 | `assets/fonts/OFL-Inter.txt` | Fonts and their licences | TXT |
