@@ -1,6 +1,6 @@
-# NanoClaw brand kit v1.3.1
+# NanoClaw brand kit
 
-The NanoClaw design system (Nov 17, 2026) for an agent applying the brand. Paths are relative to this folder.
+This guide follows the brand kit on `main`. For the packaged kit, see the [v1.3.1 release](https://github.com/nanocoai/nanoclaw-brand-kit/releases/tag/v1.3.1). Paths are relative to this folder.
 Values here are generated from the design system's sources; `tokens.json` and `tokens.css` hold the same values in code form.
 `design-system.html` is the full visual reference (self-contained; open it in a browser).
 **This file is the source of truth for applying the brand.** Where `README.md`, `USAGE.md` or the design system page says something different, follow this file.
@@ -13,7 +13,7 @@ Values here are generated from the design system's sources; `tokens.json` and `t
 4. Keep clear space: ½ × mascot height around the lockup; the wordmark's cap height around the wordmark alone.
 5. One mint, `#56EDD6`; one near-black, `#0C1213`. Don't introduce other mints, teals or near-blacks. Use the semantic tokens, not raw ramp values, for UI.
 6. Mint text on light is `#0B7566` (mint-700), never `#56EDD6`: that fails contrast on white. A mint fill always takes a `#0C1213` label.
-7. Never put the logo on a navy background; never make the whole wordmark mint; never set "NanoClaw" in a font in place of the wordmark.
+7. Keep the logo off navy backgrounds. Use the supplied mint lockup or mint wordmark only for single-ink work on near-black. Always use the supplied wordmark artwork.
 8. Inter for headings and body, JetBrains Mono for code. No other fonts.
 9. Write **NanoClaw**: one word, capital N and C. Lowercase `nanoclaw` only in code, URLs and repo names.
 10. Use a one-colour variant only when the medium allows one ink; otherwise full colour.
@@ -63,7 +63,7 @@ These two files are also the GitHub README pair (`nanoclaw-logo-light` / `nanocl
 - Recolour the mascot (fill or outline), or add glow or gradients.
 - Stretch, squash, rotate or rebuild the lockup, or change the 40% ratio.
 - Squeeze the mascot in at tiny sizes: under 32px tall use the wordmark alone.
-- Make the wordmark all mint: only "Claw" is mint, and only on dark.
+- Recolour the full-colour wordmark. For single-ink work on near-black, use the supplied mint artwork.
 
 ## Mascot
 
@@ -270,9 +270,9 @@ Read it aloud. Would you say it this way to someone you were helping? Check the 
 | Path | What it is | Size / format |
 |---|---|---|
 | `BRAND.md` | This file: read first | Markdown |
-| `tokens.json` | Colours, fonts, type scale, spacing, radii, logo rules, for token pipelines (Style Dictionary etc.) | W3C design tokens |
+| `tokens.json` | Colours, fonts, type scale, spacing, radii, motion, logo rules, for token pipelines (Style Dictionary etc.) | W3C design tokens |
 | `tokens.css` | CSS custom properties: dark default, `[data-theme="light"]`, motion, logo colours, `@font-face`; drop into a web project | CSS |
-| `design-system.html` | The full design system page v1.3.1: visual reference, components, Tailwind and Mintlify snippets | HTML, self-contained |
+| `design-system.html` | The full design system page: visual reference, components, Tailwind and Mintlify snippets | HTML, self-contained |
 | `assets/app-icon/apple-touch-icon.png` | App icon / favicon (see the App icon table) | 180×180 |
 | `assets/app-icon/favicon-16x16.png` | App icon / favicon (see the App icon table) | 16×16 |
 | `assets/app-icon/favicon-32x32.png` | App icon / favicon (see the App icon table) | 32×32 |
