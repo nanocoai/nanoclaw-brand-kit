@@ -7,6 +7,6 @@ Point your agent at this folder and tell it: "Read BRAND.md first and follow its
 
 Use this kit for the [NanoClaw open-source project](https://github.com/nanocoai/nanoclaw). See the [brand usage guide](USAGE.md) when choosing artwork.
 
-- Browse the [interactive design system](design-system.html) locally in a browser.
+- Explore the [interactive design system](https://nanocoai.github.io/nanoclaw-brand-kit/) on GitHub Pages, or open [the standalone HTML](design-system.html) locally.
 - Download the [original v1.3.1 distribution](https://github.com/nanocoai/nanoclaw-brand-kit/releases/tag/v1.3.1).
 - Edit the [social card layout](social/card.html) and [background pattern](social/pattern.svg). Run `python3 social/render.py` from the repository root with Chrome or Chromium installed to regenerate the [1280 × 640 PNG](social/social-preview.png).
