@@ -111,6 +111,13 @@
   :root { --nc-duration-fast: 0ms; --nc-duration-base: 0ms; --nc-duration-slow: 0ms; }
 }
 
+/* Slides (1920 × 1080): see BRAND.md › Slides and slides/deck.css */
+:root {
+  --nc-slide-hero: 120px; --nc-slide-title: 72px; --nc-slide-subtitle: 48px; --nc-slide-quote: 40px;
+  --nc-slide-body: 32px; --nc-slide-small: 28px; --nc-slide-caption: 24px;
+  --nc-slide-margin: 128px;
+}
+
 /* Logo colours per theme, for inline SVG wordmarks */
 :root, [data-theme="dark"] {
   --nc-logo-nano: #FFFFFF;

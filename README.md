@@ -14,6 +14,7 @@ Point your agent at this folder and tell it: "Read BRAND.md first and follow its
 | App icon | [512 px PNG](assets/app-icon/icon-512.png) · [Favicon SVG](assets/app-icon/favicon.svg) |
 | Social preview | [1280 × 640 PNG](social/social-preview.png) · [Editable layout](social/card.html) |
 | Design tokens | [CSS](tokens.css) · [JSON](tokens.json) |
+| Slides | [Slide kit and layouts](slides/README.md) · [Preview](slides/preview.html) · [PowerPoint template](slides/nanoclaw-slides.potx) |
 
 [Browse all assets](assets/)
 
@@ -23,4 +24,5 @@ Use this kit for the [NanoClaw open-source project](https://github.com/nanocoai/
 
 - Explore the [NanoClaw design system](https://nanocoai.github.io/nanoclaw-brand-kit/) on GitHub Pages, or open [the standalone HTML](design-system.html) locally.
 - Download the packaged kit: [Latest release · v1.3.1](https://github.com/nanocoai/nanoclaw-brand-kit/releases/tag/v1.3.1).
+- Start a deck from the [slide kit](slides/README.md). After changing a layout or `slides/deck.css`, run `python3 slides/build.py --png` to check it against the tokens and rebuild the preview; after changing the PowerPoint generator, run `node slides/pptx/build-potx.js`.
 - Edit the [social card layout](social/card.html) and [background pattern](social/pattern.svg). Run `python3 social/render.py` from the repository root with Chrome or Chromium installed to regenerate the [1280 × 640 PNG](social/social-preview.png).

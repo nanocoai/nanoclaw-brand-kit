@@ -1,0 +1,245 @@
+/* NanoClaw slides: the shared stylesheet for 1920 × 1080 decks.
+   Colour values are the semantic tokens from ../tokens.css, scoped to each slide so a deck can mix themes.
+   `python3 slides/build.py` checks them against tokens.css; change a colour there first, then here.
+   Plain CSS on purpose: no @import, no build step, so it drops into Claude's Slides, reveal.js or any HTML deck.
+   Fonts: load Inter and JetBrains Mono yourself (Google Fonts, or the @font-face rules in ../tokens.css). */
+
+/* ---------- Themes ---------- */
+
+/* Dark: the default slide */
+section {
+  --nc-bg: #0C1213;
+  --nc-surface: #131B1D;
+  --nc-surface-2: #1A2426;
+  --nc-border: #263234;
+  --nc-border-strong: #5B6E6B;
+  --nc-text: #EAF4F2;
+  --nc-text-muted: #93A9A6;
+  --nc-accent: #56EDD6;
+  --nc-accent-text: #56EDD6;
+  --nc-accent-tint: #12302C;
+  --nc-accent-border: #56EDD6;
+  --nc-on-accent: #0C1213;
+  --nc-warning: #F5B84B;
+  --nc-warning-tint: #2A2214;
+  --nc-danger: #FF6B6B;
+  --nc-danger-tint: #2C1617;
+  --nc-success: #56EDD6;
+  /* Slide-only: the "before" or context colour in comparisons (neutral-600 on dark) */
+  --nc-slide-context: #5B6E6B;
+}
+
+/* Light: for dense data, tables and charts */
+section.light {
+  --nc-bg: #F6FAF9;
+  --nc-surface: #FFFFFF;
+  --nc-surface-2: #EAF4F2;
+  --nc-border: #CCDBDA;
+  --nc-border-strong: #768B8A;
+  --nc-text: #0C1213;
+  --nc-text-muted: #5B6E6B;
+  --nc-accent: #56EDD6;
+  --nc-accent-text: #0B7566;
+  --nc-accent-tint: #E9FCF7;
+  --nc-accent-border: #0B7566;
+  --nc-on-accent: #0C1213;
+  --nc-warning: #9A6200;
+  --nc-warning-tint: #FFF4E2;
+  --nc-danger: #C93434;
+  --nc-danger-tint: #FEF0EF;
+  --nc-success: #0B7566;
+  /* neutral-400 on light */
+  --nc-slide-context: #93A9A6;
+}
+
+/* Mint: at most one statement slide per deck. Near-black text and lines; status colours use the light values */
+section.mint {
+  --nc-bg: #56EDD6;
+  --nc-surface: #FFFFFF;
+  --nc-surface-2: #E9FCF7;
+  --nc-border: #0C1213;
+  --nc-border-strong: #0C1213;
+  --nc-text: #0C1213;
+  --nc-text-muted: #263234;
+  --nc-accent: #0C1213;
+  --nc-accent-text: #0C1213;
+  --nc-accent-tint: #E9FCF7;
+  --nc-accent-border: #0C1213;
+  --nc-on-accent: #56EDD6;
+  --nc-warning: #9A6200;
+  --nc-warning-tint: #FFF4E2;
+  --nc-danger: #C93434;
+  --nc-danger-tint: #FEF0EF;
+  --nc-success: #0B7566;
+  --nc-slide-context: #263234;
+}
+
+/* ---------- Slide type scale and motion (same in every theme) ---------- */
+section {
+  --nc-slide-hero: 120px;
+  --nc-slide-title: 72px;
+  --nc-slide-subtitle: 48px;
+  --nc-slide-quote: 40px;
+  --nc-slide-body: 32px;
+  --nc-slide-small: 28px;
+  --nc-slide-caption: 24px;
+  --nc-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ---------- The canvas ---------- */
+section {
+  width: 1920px;
+  height: 1080px;
+  padding: 128px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: var(--nc-bg);
+  color: var(--nc-text);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--nc-slide-body);
+  line-height: 1.4;
+}
+/* A slide with a footer row keeps 160px free at the bottom */
+section.withfoot { padding: 128px 128px 160px; }
+
+/* Wordmark, top right, on every slide but the cover and mint slides. 28px tall, so the wordmark alone (BRAND.md rule 3) */
+.brandmark { position: absolute; top: 60px; right: 128px; height: 28px; width: auto; margin: 0; }
+
+/* Footer row: source, PR links or date. One line, 24px, at bottom 64px */
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1664px; font-size: var(--nc-slide-caption); line-height: 1.4; color: var(--nc-text-muted); margin: 0; }
+.foot a { color: var(--nc-accent-text); }
+
+/* ---------- Text ---------- */
+.eyebrow { font-size: var(--nc-slide-caption); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--nc-accent-text); margin: 0; }
+.hero { font-size: var(--nc-slide-hero); font-weight: 800; line-height: 1; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; margin: 0; }
+.title { font-size: var(--nc-slide-title); font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; margin: 0; }
+.lede { font-size: var(--nc-slide-body); color: var(--nc-text-muted); margin: 0; }
+.quote { font-size: var(--nc-slide-quote); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; margin: 0; }
+.sl { font-size: var(--nc-slide-small); font-weight: 500; line-height: 1.25; margin: 0; }
+.cap { font-size: var(--nc-slide-caption); line-height: 1.35; color: var(--nc-text-muted); margin: 0; }
+.cap b { color: var(--nc-text); font-weight: 600; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: var(--nc-slide-caption); background: #1A2426; color: #EAF4F2; padding: 4px 12px; border-radius: 6px; }
+
+/* ---------- Layout helpers ---------- */
+.head { display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; flex-direction: row; gap: 32px; }
+.col { display: flex; flex-direction: column; gap: 24px; }
+.kicker { display: flex; flex-direction: row; align-items: center; gap: 16px; }
+
+/* ---------- Icon chip: a Lucide icon on a rounded tile ---------- */
+.ichip { width: 72px; height: 72px; border-radius: 16px; background: var(--nc-surface-2); color: var(--nc-text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-sizing: border-box; }
+.ichip svg { width: 40px; height: 40px; }
+.ichip.sm { width: 48px; height: 48px; border-radius: 12px; }
+.ichip.sm svg { width: 28px; height: 28px; }
+.ichip.lg { width: 96px; height: 96px; border-radius: 20px; }
+.ichip.lg svg { width: 52px; height: 52px; }
+.ichip.warn { background: var(--nc-warning-tint); color: var(--nc-warning); }
+.ichip.risk { background: var(--nc-danger-tint); color: var(--nc-danger); }
+section.mint .ichip { background: #0C1213; color: #56EDD6; }
+
+/* ---------- Cards ---------- */
+.card { background: var(--nc-surface); border: 2px solid var(--nc-border); border-radius: 10px; padding: 36px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box; }
+.card.panel { background: var(--nc-accent-tint); border-color: var(--nc-accent-border); border-radius: 16px; }
+.card .ct { font-size: var(--nc-slide-body); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+.card .cb { font-size: var(--nc-slide-caption); line-height: 1.4; color: var(--nc-text-muted); margin: 0; }
+.card .tag { align-self: flex-start; font-size: var(--nc-slide-caption); font-weight: 600; line-height: 1.3; color: var(--nc-accent-text); border: 2px solid var(--nc-accent-border); border-radius: 999px; padding: 2px 16px; margin: 0; }
+section.mint .card { color: #0C1213; }
+
+/* ---------- Numbers ---------- */
+/* Big numbers stay in the text colour: mint marks status, not size */
+.stat { font-size: var(--nc-slide-title); font-weight: 800; line-height: 1; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; color: var(--nc-text); margin: 0; }
+.statlabel { font-size: var(--nc-slide-body); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+.statnote { font-size: var(--nc-slide-caption); line-height: 1.35; color: var(--nc-text-muted); margin: 0; }
+.kpil { font-size: var(--nc-slide-small); font-weight: 600; line-height: 1.2; margin: 0; }
+/* Before → after: the old value in muted, an arrow, the new value as a .stat */
+.ba { display: flex; flex-direction: row; align-items: center; gap: 20px; }
+.ba .was { font-size: var(--nc-slide-subtitle); font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--nc-text-muted); margin: 0; }
+.ba .arrow { width: 32px; height: 32px; color: var(--nc-border-strong); flex-shrink: 0; }
+
+/* ---------- Status: always an icon AND a word, never colour alone ---------- */
+.badge { display: flex; flex-direction: row; align-items: center; gap: 8px; align-self: flex-start; padding: 6px 18px 6px 12px; border-radius: 999px; border: 2px solid var(--nc-success); background: var(--nc-accent-tint); color: var(--nc-success); box-sizing: border-box; }
+.badge svg { width: 28px; height: 28px; flex-shrink: 0; }
+.badge p { margin: 0; font-size: var(--nc-slide-caption); font-weight: 600; line-height: 1.3; }
+.badge.warn { border-color: var(--nc-warning); background: var(--nc-warning-tint); color: var(--nc-warning); }
+.badge.risk { border-color: var(--nc-danger); background: var(--nc-danger-tint); color: var(--nc-danger); }
+
+/* Legend row for charts */
+.legs { display: flex; flex-direction: row; align-items: center; gap: 28px; }
+.leg { display: flex; flex-direction: row; align-items: center; gap: 8px; color: var(--nc-success); }
+.leg svg { width: 28px; height: 28px; flex-shrink: 0; }
+.leg p { margin: 0; font-size: var(--nc-slide-caption); color: var(--nc-text-muted); }
+.leg.warn { color: var(--nc-warning); }
+.leg.risk { color: var(--nc-danger); }
+.leg.ctx { color: var(--nc-slide-context); }
+
+/* Topic chip, e.g. on the cover */
+.chip { display: flex; flex-direction: row; align-items: center; gap: 14px; padding: 10px 28px 10px 16px; border-radius: 999px; background: var(--nc-surface); border: 2px solid var(--nc-border); }
+.chip svg { width: 32px; height: 32px; color: var(--nc-text); flex-shrink: 0; }
+.chip p { margin: 0; font-size: var(--nc-slide-small); font-weight: 600; line-height: 1.2; }
+
+/* ---------- Bars ---------- */
+.bar { position: relative; height: 16px; border-radius: 999px; background: var(--nc-border); }
+.bar .fill { position: absolute; left: 0; top: 0; height: 16px; border-radius: 999px; background: var(--nc-success); }
+section .bar .fill.warn { background: var(--nc-warning); }
+section .bar .fill.risk { background: var(--nc-danger); }
+section .bar .fill.ctx { background: var(--nc-slide-context); }
+.mrow { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+.mrow .ml { margin: 0; font-size: var(--nc-slide-caption); color: var(--nc-text-muted); width: 84px; flex-shrink: 0; }
+.mrow .mv { margin: 0; font-size: var(--nc-slide-caption); font-weight: 600; width: 84px; flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- Steps ---------- */
+/* Numbered dot: mint fill, near-black number (BRAND.md rule 6) */
+.numdot { width: 64px; height: 64px; border-radius: 999px; background: var(--nc-accent); color: var(--nc-on-accent); font-size: var(--nc-slide-body); font-weight: 700; font-variant-numeric: tabular-nums; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0; }
+section.mint .numdot { background: #0C1213; color: #56EDD6; }
+/* Vertical line behind a column of icon chips; pin it at left 34px, under the chips' centres */
+.flowline { position: absolute; width: 4px; border-radius: 2px; background: var(--nc-border); }
+.flowarrow { width: 28px; height: 28px; color: var(--nc-border-strong); flex-shrink: 0; }
+/* Index number on a contents or backup slide */
+.bnum { margin: 0; width: 56px; flex-shrink: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: var(--nc-slide-body); color: var(--nc-text-muted); text-align: right; }
+
+/* ---------- Terminal: always dark, whatever the slide theme ---------- */
+.termwrap { background: #131B1D; border: 2px solid #263234; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; }
+.termbar { background: #1A2426; border-bottom: 2px solid #263234; padding: 12px 24px 12px 40px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.termbar p { margin: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: var(--nc-slide-caption); color: #93A9A6; }
+.termbar .badge { --nc-success: #56EDD6; --nc-accent-tint: #12302C; }
+.termbar .badge p { font-family: 'Inter', system-ui, sans-serif; color: #56EDD6; }
+.term { color: #EAF4F2; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: var(--nc-slide-caption); line-height: 1.55; padding: 36px 40px; display: flex; flex-direction: column; }
+.term p { margin: 0; font-size: var(--nc-slide-caption); }
+.term .k { color: #56EDD6; }
+.term .c { color: #93A9A6; }
+.term .ok { color: #56EDD6; font-weight: 600; }
+
+/* ---------- Grouped table ---------- */
+.tbl { display: flex; flex-direction: column; width: 1664px; }
+.shead { display: flex; flex-direction: row; gap: 24px; padding: 6px 0; border-bottom: 2px solid var(--nc-border-strong); }
+.shead p { margin: 0; font-size: var(--nc-slide-caption); line-height: 1.3; font-weight: 600; color: var(--nc-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.grp { display: flex; flex-direction: row; gap: 24px; border-bottom: 2px solid var(--nc-border-strong); }
+.gcell { width: 260px; flex-shrink: 0; display: flex; flex-direction: row; gap: 12px; align-items: flex-start; padding: 8px 0; }
+.gcell p { margin: 0; font-size: var(--nc-slide-caption); font-weight: 600; line-height: 1.3; padding-top: 9px; }
+.grows { flex: 1; display: flex; flex-direction: column; }
+.srow { display: flex; flex-direction: row; gap: 24px; align-items: center; padding: 6px 0; border-bottom: 2px solid var(--nc-border); }
+.srow:last-child { border-bottom: none; }
+.srow p { margin: 0; font-size: var(--nc-slide-caption); line-height: 1.3; }
+.srow .d { width: 90px; flex-shrink: 0; font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; color: var(--nc-text-muted); }
+.srow .s { width: 420px; flex-shrink: 0; font-weight: 600; }
+.srow .b { width: 300px; flex-shrink: 0; color: var(--nc-text-muted); }
+.nowc { flex: 1; display: flex; flex-direction: row; align-items: center; gap: 8px; color: var(--nc-success); }
+.nowc svg { width: 28px; height: 28px; flex-shrink: 0; }
+.nowc p { font-weight: 600; color: var(--nc-accent-text); }
+
+/* ---------- Motion: on arrival only, whole slide in within a second ---------- */
+/* Set --i on each element (0, 1, 2 …) to stagger it by 100ms */
+.rise { animation: nc-rise 600ms var(--nc-ease-standard) both; animation-delay: calc(var(--i, 0) * 100ms); }
+@keyframes nc-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
+.fadein { animation: nc-fadein 800ms var(--nc-ease-standard) both; animation-delay: calc(var(--i, 0) * 100ms); }
+@keyframes nc-fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
