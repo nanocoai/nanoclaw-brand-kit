@@ -8,7 +8,7 @@ Values here are generated from the design system's sources; `tokens.json` and `t
 ## Rules an agent must follow
 
 1. Use the files in `assets/` as they are. Never redraw, retrace, recolour, stretch, rotate or add effects (glow, gradient, shadow) to the mascot, the lockup or the wordmark.
-2. **On light:** `assets/logo/nanoclaw-logo-light.svg`: the whole wordmark navy `#080037`, no rim. **On dark:** `assets/logo/nanoclaw-logo-dark.svg`: white "Nano", mint `#56EDD6` "Claw", pale `#D6FCF7` rim around the mascot.
+2. **On light:** `assets/logo/nanoclaw-logo-light.svg`: the whole wordmark navy `#080037`, no rim. **On dark:** `assets/logo/nanoclaw-logo-dark.svg`: white "Nano", mint `#56EDD6` "Claw", pale `#D6FCF7` rim around the mascot. The mascot alone on dark is `assets/mascot/nanoclaw-mascot-shaded-dark.svg`, with the same rim.
 3. **Size picks the mark:** full lockup at 32px tall and up; **wordmark only** (`assets/wordmark/`) under 32px tall; a square spot gets the app icon (`assets/app-icon/`).
 4. Keep clear space: ½ × mascot height around the lockup; the wordmark's cap height around the wordmark alone.
 5. One mint, `#56EDD6`; one near-black, `#0C1213`. Don't introduce other mints, teals or near-blacks. Use the semantic tokens, not raw ramp values, for UI.
@@ -68,7 +68,7 @@ These two files are also the GitHub README pair (`nanoclaw-logo-light` / `nanocl
 
 ## Mascot
 
-`assets/mascot/nanoclaw-mascot-shaded.svg` is the default mascot (screens, slides, digital print). `nanoclaw-mascot.svg` is the flat one (no shading tones). The `-sticker` SVGs add a white sticker border, for stickers and busy backgrounds. PNGs at 512px tall are included for tools that can't take SVG. The mascot has no name: call it "the NanoClaw mascot".
+`assets/mascot/nanoclaw-mascot-shaded.svg` is the default mascot (screens, slides, digital print). `nanoclaw-mascot.svg` is the flat one (no shading tones). `nanoclaw-mascot-shaded-dark.svg` is the default mascot with the dark lockup's pale `#D6FCF7` rim, for dark backgrounds (`#0C1213`, dark slides, dark UI): without the rim the navy outline and antennae disappear. On light, use the default mascot, with no rim. The `-sticker` SVGs add a white sticker border, for stickers and busy backgrounds. PNGs at 512px tall are included for tools that can't take SVG. The mascot has no name: call it "the NanoClaw mascot".
 
 Mascot colours (artwork only, not UI colours): mint `#56EDD6`, navy outline `#080037`, shadow `#44BBAC`, light `#89EDD6`, shine `#F0FFFC`.
 
@@ -338,6 +338,8 @@ Read it aloud. Would you say it this way to someone you were helping? Check the 
 | `assets/logo/nanoclaw-logo-light.svg` | Lockup on light backgrounds; README light | vector |
 | `assets/mascot/nanoclaw-mascot-512.png` | Mascot, flat | 411×512 |
 | `assets/mascot/nanoclaw-mascot-shaded-512.png` | Mascot, default (shaded) | 411×512 |
+| `assets/mascot/nanoclaw-mascot-shaded-dark-512.png` | Mascot on dark, with the pale rim | 413×512 |
+| `assets/mascot/nanoclaw-mascot-shaded-dark.svg` | Mascot on dark, with the pale rim | vector |
 | `assets/mascot/nanoclaw-mascot-shaded-sticker.svg` | Mascot with sticker border, shaded | vector |
 | `assets/mascot/nanoclaw-mascot-shaded.svg` | Mascot, default (shaded) | vector |
 | `assets/mascot/nanoclaw-mascot-sticker.svg` | Mascot with sticker border, flat | vector |

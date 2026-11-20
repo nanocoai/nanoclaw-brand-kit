@@ -10,7 +10,7 @@ Point your agent at this folder and tell it: "Read BRAND.md first and follow its
 | Logo on light backgrounds | [SVG](assets/logo/nanoclaw-logo-light.svg) · [PNG](assets/logo/nanoclaw-logo-light.png) |
 | Logo on dark backgrounds | [SVG](assets/logo/nanoclaw-logo-dark.svg) · [PNG](assets/logo/nanoclaw-logo-dark.png) |
 | Wordmark | [Light background](assets/wordmark/nanoclaw-wordmark-light.svg) · [Dark background](assets/wordmark/nanoclaw-wordmark-dark.svg) |
-| Mascot | [Shaded SVG](assets/mascot/nanoclaw-mascot-shaded.svg) · [Sticker SVG](assets/mascot/nanoclaw-mascot-shaded-sticker.svg) |
+| Mascot | [Shaded SVG](assets/mascot/nanoclaw-mascot-shaded.svg) · [On dark, with rim](assets/mascot/nanoclaw-mascot-shaded-dark.svg) · [Sticker SVG](assets/mascot/nanoclaw-mascot-shaded-sticker.svg) |
 | App icon | [512 px PNG](assets/app-icon/icon-512.png) · [Favicon SVG](assets/app-icon/favicon.svg) |
 | Social preview | [1280 × 640 PNG](social/social-preview.png) · [Editable layout](social/card.html) |
 | Design tokens | [CSS](tokens.css) · [JSON](tokens.json) |
